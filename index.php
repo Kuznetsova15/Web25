@@ -274,7 +274,7 @@ else {
     $db = new PDO('mysql:host=localhost; dbname=u53002', $user, $pass, array(PDO::ATTR_PERSISTENT => true));
     if (!empty($_COOKIE[session_name()]) && !empty($_SESSION['login']) and !$errors) {
       $id=$_SESSION['uid'];
-      $upd=$db->prepare("UPDATE application SET name=:name, email=:email, year=:byear, pol=:pol, limbs=:limbs, bio=:bio WHERE id=:id");
+      $upd=$db->prepare("UPDATE application SET name=:name, mail=:email, year=:byear, sex=:pol, number_limb=:limbs, biography=:bio WHERE id=:id");
       $cols=array(
         ':name'=>$name,
         ':email'=>$email,
@@ -288,7 +288,7 @@ else {
       }
       $upd->bindParam(':id',$id);
       $upd->execute();
-      $del=$db->prepare("DELETE FROM super WHERE per_id=?");
+      $del=$db->prepare("DELETE FROM power_pers WHERE per_id=?");
       $del->execute(array($id));
       $upd1=$db->prepare("INSERT INTO super SET name=:power,per_id=:id");
       $upd1->bindParam(':id',$id);
