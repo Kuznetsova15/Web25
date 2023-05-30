@@ -38,32 +38,32 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
   $errors['check-1'] = !empty($_COOKIE['check_error']);
   if ($errors['name']) {
     setcookie('name_error', '', 100000);
-    $messages[] = '<div class="error">Заполните имя или у него неверный формат (only English)</div>';
+    $messages[] = '<div class="error">Нет имени или у него неверный формат (only English)</div>';
     $error=TRUE;
   }
   if ($errors['email']) {
     setcookie('email_error', '', 100000);
-    $messages[] = '<div class="error">Заполните имейл или у него неверный формат</div>';
+    $messages[] = '<div class="error">Нет e-mail или у него неверный формат</div>';
     $error=TRUE;
   }
   if ($errors['year']) {
     setcookie('year_error', '', 100000);
-    $messages[] = '<div class="error">Выберите год.</div>';
+    $messages[] = '<div class="error">Не указан год</div>';
     $error=TRUE;
   }
   if ($errors['radio-1']) {
     setcookie('pol_error', '', 100000);
-    $messages[] = '<div class="error">Выберите пол.</div>';
+    $messages[] = '<div class="error">Не указан пол</div>';
     $error=TRUE;
   }
   if ($errors['radio-2']) {
     setcookie('limb_error', '', 100000);
-    $messages[] = '<div class="error">Укажите кол-во конечностей.</div>';
+    $messages[] = '<div class="error">Не указано кол-во конечностей</div>';
     $error=TRUE;
   }
   if ($errors['super']) {
     setcookie('super_error', '', 100000);
-    $messages[] = '<div class="error">Выберите суперспособности(хотя бы одну).</div>';
+    $messages[] = '<div class="error">Не указана суперспособность</div>';
     $error=TRUE;
   }
   if ($errors['bio']) {
