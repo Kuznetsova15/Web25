@@ -129,7 +129,7 @@ if (!empty($messages)) {
                 if(empty($_SESSION['login'])){
                 print('
                 <div  '.$cl_e.' >
-                <input name="check" type="checkbox" '.$ch.'> Я согласен дать данные <br>
+                <input name="check" type="checkbox" '.$ch.'> Я согласен на обработку персональных данных <br>
                 </div>');}
                 ?>
 
