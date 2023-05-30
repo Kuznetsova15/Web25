@@ -95,18 +95,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     $pass = '8089091';
     $db = new PDO('mysql:host=localhost; dbname=u53002', $user, $pass, array(PDO::ATTR_PERSISTENT => true));
     try{
-      $get=$db->prepare("SELECT * FROM form WHERE id=?");
+      $get=$db->prepare("SELECT * FROM application WHERE id=?");
       $get->bindParam(1,$_SESSION['uid']);
       $get->execute();
       $inf=$get->fetchALL();
       $values['name']=$inf[0]['name'];
-      $values['email']=$inf[0]['email'];
+      $values['email']=$inf[0]['mail'];
       $values['year']=$inf[0]['year'];
-      $values['radio-1']=$inf[0]['pol'];
-      $values['radio-2']=$inf[0]['limbs'];
-      $values['bio']=$inf[0]['bio'];
+      $values['radio-1']=$inf[0]['sex'];
+      $values['radio-2']=$inf[0]['number_limb'];
+      $values['bio']=$inf[0]['biography'];
 
-      $get2=$db->prepare("SELECT name FROM super WHERE per_id=?");
+      $get2=$db->prepare("SELECT name FROM power_pers WHERE per_id=?");
       $get2->bindParam(1,$_SESSION['uid']);
       $get2->execute();
       $inf2=$get2->fetchALL();
